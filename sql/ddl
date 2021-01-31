@@ -1,0 +1,16 @@
+CREATE TABLE members(
+user_num int,
+regi_id NVARCHAR(40),
+regi_dt DATETIME DEFAULT(now()),
+regi_ip NVARCHAR(40),
+modi_id NVARCHAR(40),
+modi_dt DATETIME DEFAULT(now()),
+modi_ip NVARCHAR(40),
+
+user_id NVARCHAR(40),
+user_name NVARCHAR(40),
+user_birth nvarchar(8),
+user_phone_num NVARCHAR(40),
+user_email NVARCHAR(40),
+
+CONSTRAINT PK_members PRIMARY KEY(user_num) )
