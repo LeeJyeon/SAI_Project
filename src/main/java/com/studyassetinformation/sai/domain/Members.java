@@ -1,31 +1,45 @@
 package com.studyassetinformation.sai.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "members")
+@Setter
+@Getter
+@NoArgsConstructor
 public class Members {
 
     @Id
+    @Column(name="user_num")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userNumber;
 
+    @Column(name="regi_id")
     private String regiId;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="regi_dt")
     private Date regiDate = new Date();
 
+    @Column(name="regi_ip")
     private String regiIp;
 
+    @Column(name="modi_id")
     private String modiId;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date mogiDate = new Date();
-    
+    @Column(name="modi_dt")
+    private Date modiDate = new Date();
+
+    @Column(name="modi_ip")
     private String modiIp;
+
 
     private String userId;
 
@@ -33,104 +47,9 @@ public class Members {
 
     private String userBirth;
 
-    private String userPhoneNumber;
+    private String userPhoneNum;
 
     private String userEmail;
 
 
-    public long getUserNumber() {
-        return userNumber;
-    }
-
-    public void setUserNumber(long userNumber) {
-        this.userNumber = userNumber;
-    }
-
-    public String getRegiId() {
-        return regiId;
-    }
-
-    public void setRegiId(String regiId) {
-        this.regiId = regiId;
-    }
-
-    public Date getRegiDate() {
-        return regiDate;
-    }
-
-    public void setRegiDate(Date regiDate) {
-        this.regiDate = regiDate;
-    }
-
-    public String getRegiIp() {
-        return regiIp;
-    }
-
-    public void setRegiIp(String regiIp) {
-        this.regiIp = regiIp;
-    }
-
-    public String getModiId() {
-        return modiId;
-    }
-
-    public void setModiId(String modiId) {
-        this.modiId = modiId;
-    }
-
-    public Date getMogiDate() {
-        return mogiDate;
-    }
-
-    public void setMogiDate(Date mogiDate) {
-        this.mogiDate = mogiDate;
-    }
-
-    public String getModiIp() {
-        return modiIp;
-    }
-
-    public void setModiIp(String modiIp) {
-        this.modiIp = modiIp;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserBirth() {
-        return userBirth;
-    }
-
-    public void setUserBirth(String userBirth) {
-        this.userBirth = userBirth;
-    }
-
-    public String getUserPhoneNumber() {
-        return userPhoneNumber;
-    }
-
-    public void setUserPhoneNumber(String userPhoneNumber) {
-        this.userPhoneNumber = userPhoneNumber;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
 }
