@@ -1,16 +1,15 @@
-CREATE TABLE members(
-user_num int,
-regi_id NVARCHAR(40),
-regi_dt DATETIME DEFAULT(now()),
-regi_ip NVARCHAR(40),
-modi_id NVARCHAR(40),
-modi_dt DATETIME DEFAULT(now()),
-modi_ip NVARCHAR(40),
-
-user_id NVARCHAR(40),
-user_name NVARCHAR(40),
-user_birth nvarchar(8),
-user_phone_num NVARCHAR(40),
-user_email NVARCHAR(40),
-
-CONSTRAINT PK_members PRIMARY KEY(user_num) )
+CREATE TABLE `members` (
+  `user_id` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `regi_id` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `regi_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `regi_ip` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `modi_id` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `modi_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `modi_ip` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `user_name` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `user_birth` varchar(8) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `user_phone_num` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `user_email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+;

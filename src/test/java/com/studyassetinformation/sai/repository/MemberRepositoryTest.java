@@ -1,7 +1,11 @@
 package com.studyassetinformation.sai.repository;
+
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import com.studyassetinformation.sai.domain.Members;
+import org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +16,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@Commit
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class MemberRepositoryTest {
 
@@ -40,7 +44,20 @@ class MemberRepositoryTest {
         members.setUserPhoneNum("01033527056");
         members.setUserEmail("jindojihyun@naver.com");
 
+        List<Members> beforeResult = memberRepository.findAll();
+
         memberRepository.save(members);
+
+        List<Members> afterResult = memberRepository.findAll();
+
+        assertThat(beforeResult.size()).isEqualTo(afterResult.size() - 1);
+    }
+
+    @Test
+    public void 확인() {
+        Optional<Members> result = memberRepository.findByUserId("jihyun6969");
+
+        System.out.println( result.get().getUserPhoneNum() );
 
     }
 

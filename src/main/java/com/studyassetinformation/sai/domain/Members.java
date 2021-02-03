@@ -16,32 +16,21 @@ import java.util.Date;
 public class Members {
 
     @Id
-    @Column(name="user_num")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userNumber;
+    private String userId;
 
-    @Column(name="regi_id")
     private String regiId;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="regi_dt")
     private Date regiDate = new Date();
 
-    @Column(name="regi_ip")
     private String regiIp;
 
-    @Column(name="modi_id")
     private String modiId;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="modi_dt")
     private Date modiDate = new Date();
 
-    @Column(name="modi_ip")
     private String modiIp;
-
-
-    private String userId;
 
     private String userName;
 
@@ -50,6 +39,5 @@ public class Members {
     private String userPhoneNum;
 
     private String userEmail;
-
 
 }

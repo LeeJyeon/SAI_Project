@@ -7,7 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-public interface MemberRepository extends JpaRepository<Members, Long> {
+@Repository
+public interface MemberRepository extends JpaRepository<Members, Long > {
+
+    Optional<Members> findByUserId(String userId);
 
 //    Members save(Members members);
 //    Optional<Members> findByUserId(String userId);
