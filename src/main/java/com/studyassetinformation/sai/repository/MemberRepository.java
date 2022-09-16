@@ -12,19 +12,4 @@ public interface MemberRepository extends JpaRepository<Members, Long > {
 
     Optional<Members> findByUserId(String userId);
 
-//    Members save(Members members);
-//    Optional<Members> findByUserId(String userId);
-
-//    Members save(Members member);
-//
-//    Members changePhoneNumber(Long userNumber, String userPhoneNumber);
-//
-//    Members changeEmail(Long userNumber, String userEmail);
-//
-//    Optional<Members> findByUserNumber(Long userNumber);
-//
-//    Optional<Members> findByUserId(String userId);
-//
-//    List<Members> findAll();
-
 }

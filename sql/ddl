@@ -13,3 +13,22 @@ CREATE TABLE `members` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ;
+
+
+create table members_history (
+process_ymd varchar(8),
+process_seq int(10) NOT NULL AUTO_INCREMENT,
+user_id varchar(40),
+regi_id varchar(40),
+regi_date datetime default current_timestamp,
+regi_ip varchar(40),
+modi_id varchar(40),
+modi_date datetime default current_timestamp,
+modi_ip varchar(40),
+crud_code varchar(1),
+user_name varchar(40),
+user_birth varchar(8),
+user_phone_num varchar(40),
+user_email varchar(100),
+primary key ( process_ymd , process_seq,user_id),
+)

@@ -1,5 +1,8 @@
 package com.studyassetinformation.sai.repository;
 
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -22,23 +25,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@Commit
 class MemberRepositoryTest {
 
     @Autowired
     MemberRepository memberRepository;
 
     @Test
-    public void 가입() {
+    public void 가입() throws UnknownHostException {
         Members members = new Members();
 
         members.setRegiId("jihyun6969");
-        members.setRegiDate(new Date());
-        members.setRegiIp("270.");
+        members.setRegiDate(LocalDateTime.now());
+        members.setRegiIp(Inet4Address.getLocalHost().getHostAddress());
         members.setModiId("jihyun6969");
-        members.setModiDate(new Date());
-        members.setModiIp("270.");
+        members.setModiDate(LocalDateTime.now());
+        members.setModiIp(Inet4Address.getLocalHost().getHostAddress());
 
-        members.setUserId("jihyun6969");
+        members.setUserId("SeoCho");
         members.setUserName("이지현");
         members.setUserBirth("19920609");
         members.setUserPhoneNum("01033527056");
@@ -55,7 +59,7 @@ class MemberRepositoryTest {
 
     @Test
     public void 확인() {
-        Optional<Members> result = memberRepository.findByUserId("jihyun6969");
+        Optional<Members> result = memberRepository.findByUserId("SeoCho");
 
         System.out.println( result.get().getUserPhoneNum() );
 
